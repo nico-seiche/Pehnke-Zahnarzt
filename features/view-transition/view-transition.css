@@ -1,0 +1,38 @@
+:root {
+  --vt-duration-out: 0.3s;
+  --vt-duration-in: 0.4s;
+  --vt-easing: ease;
+}
+
+/* Set on <html> while a route view transition runs (links, programmatic, back/forward). */
+html[data-vt-loading],
+html[data-vt-loading] * {
+  cursor: wait;
+}
+
+/* Sequential cross-fade: the old page fades out completely, then the new page fades in from 0. */
+::view-transition-old(root) {
+  animation: vt-fade var(--vt-duration-out) var(--vt-easing) both reverse;
+}
+
+::view-transition-new(root) {
+  z-index: 1;
+  animation: vt-fade var(--vt-duration-in) var(--vt-easing) var(--vt-duration-out) both;
+}
+
+@keyframes vt-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0s;
+    animation-delay: 0s;
+  }
+}

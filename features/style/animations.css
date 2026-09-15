@@ -1,0 +1,22 @@
+@theme {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  --animate-fade-in: fadeIn 400ms ease-in-out;
+  --animate-fade-out: fadeOut 400ms ease-in-out;
+}

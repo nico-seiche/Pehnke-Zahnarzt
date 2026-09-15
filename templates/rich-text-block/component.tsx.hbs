@@ -1,0 +1,20 @@
+import { cx } from "~/features/style/utils";
+import type { {{pascalCase name}}FragmentResult } from "./fragment";
+
+export function {{pascalCase name}}({
+  value,
+  className,
+}: {
+  value?: {{pascalCase name}}FragmentResult;
+  className?: string;
+}) {
+  if (!value) {
+    return null;
+  }
+
+  return (
+    <div data-rich-text-block="{{camelCase name}}" className={cx("bg-[green] py-64", className)}>
+      <code>{JSON.stringify(value)}</code>
+    </div>
+  );
+}

@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@import "./colors.css";
+@import "./typography.css";
+@import "./animations.css";
+@import "./global.css";
+@import "../view-transition/view-transition.css";
+
+@theme {
+  /*
+    Core layout dimensions for site boundaries and viewport constraints.
+    These variables define both content width parameters and function as
+    reference values for responsive design calculations. They should align
+    with the minimum and maximum content width requirements.
+  */
+  --layout-min-w: 375;
+  --layout-max-w: 1600;
+
+  /* Reset default TW breakpoints. */
+  --breakpoint-\*: initial;
+
+  /*
+    Note: When used in media queries, rem units don't scale with the document's
+    root font size. Instead, they scale according to the browser's default font size.
+    Users with larger default font settings will trigger mobile breakpoints "sooner".
+  */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+
+  /* One unit should match one pixel given that 1rem equals 16px. */
+  --spacing: 0.0625rem;
+
+  /* Reset default TW border-radius. Values from design-system/tokens/radii.css. */
+  --radius-\*: initial;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+  --radius-2xl: 34px;
+  --radius-pill: 999px;
+  --radius-full: 9999px;
+  --radius-control: var(--radius-pill);
+  --radius-card: var(--radius-lg);
+  --radius-panel: var(--radius-xl);
+  --radius-media: var(--radius-xl);
+
+  /* Reset default TW shadows. Values from design-system/tokens/shadows.css — all blue-tinted, never neutral black. */
+  --shadow-\*: initial;
+
+  --shadow-xs: 0 1px 2px rgba(20, 86, 122, 0.06);
+  --shadow-sm: 0 2px 6px rgba(20, 86, 122, 0.07), 0 1px 2px rgba(20, 86, 122, 0.05);
+  --shadow-md: 0 8px 22px -8px rgba(20, 86, 122, 0.16), 0 2px 6px rgba(20, 86, 122, 0.06);
+  --shadow-lg: 0 20px 46px -18px rgba(20, 86, 122, 0.24), 0 4px 12px rgba(20, 86, 122, 0.07);
+  --shadow-brand: 0 14px 30px -12px rgba(43, 163, 220, 0.55);
+
+  /* Motion. Values from design-system/tokens/motion.css. */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.25, 1);
+  --ease-entrance: cubic-bezier(0.16, 0.84, 0.28, 1);
+
+  --duration-instant: 90ms;
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+  --duration-slow: 420ms;
+  --duration-reveal: 560ms;
+}
+
+/* Visually hide the native scrollbar. */
+@utility scrollbar-invisible {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+}

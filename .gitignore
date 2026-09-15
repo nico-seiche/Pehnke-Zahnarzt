@@ -1,0 +1,57 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# caches
+**.cache
+*.tsbuildinfo
+.eslintcache
+.prettiercache
+
+# testing
+/coverage
+*.bru
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# data
+*.sqlite
+*.tar.gz
+/backups
+
+# committed seed dataset (starter content shipped with the template)
+!/seed/seed-dataset.tar.gz
+
+# misc
+.DS_Store
+.directory
+*.pem
+*.pid
+.Trash-*
+.vercel
+.idea
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env files
+.env
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+next-env.d.ts
+
+# claude
+.claude/

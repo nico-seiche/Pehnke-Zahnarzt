@@ -1,0 +1,101 @@
+/*
+ * Zahnarztpraxis Pehnke — typography tokens, ported from the Penke design
+ * system (`design-system/tokens/typography.css`, `tokens/fonts.css`).
+ * Outfit for display/headings, Figtree for body text, IBM Plex Mono for
+ * times and phone numbers. Font family is applied via `font-display` /
+ * `font-sans` / `font-mono`; size/weight/leading via the `text-*` utilities
+ * below (Tailwind v4 text-size modifiers don't carry font-family).
+ */
+@theme {
+  /*
+   * Outfit/Figtree/IBM Plex Mono from ~/features/fonts (next/font sets the
+   * `--font-outfit` / `--font-figtree` / `--font-ibm-plex-mono` variables on `html`).
+   */
+  --font-display: var(--font-outfit), "Segoe UI", system-ui, sans-serif;
+  --font-sans: var(--font-figtree), "Segoe UI", system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
+
+  --tracking-tight: -0.022em;
+  --tracking-snug: -0.012em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.08em;
+
+  /* Reset default TW font sizes. */
+  --text-*: initial;
+
+  --fluid-min-w: var(--layout-min-w, 375);
+  --fluid-max-w: var(--layout-max-w, 1600);
+  --fluid-slope: calc((100vw - --spacing(var(--fluid-min-w))) / (var(--fluid-max-w) - var(--fluid-min-w)));
+
+  /* 13px, times, phone numbers, meta */
+  --text-mono: 0.8125rem;
+  --text-mono--font-weight: 400;
+  --text-mono--line-height: 1.5;
+  --text-mono--letter-spacing: var(--tracking-normal);
+
+  /* 11px, eyebrows and field labels */
+  --text-eyebrow: 0.6875rem;
+  --text-eyebrow--font-weight: 600;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: var(--tracking-wide);
+
+  /* 12px, form hints, small print */
+  --text-caption: 0.75rem;
+  --text-caption--font-weight: 400;
+  --text-caption--line-height: 1.25;
+  --text-caption--letter-spacing: var(--tracking-normal);
+
+  /* 13px, buttons, labels */
+  --text-label: 0.8125rem;
+  --text-label--font-weight: 600;
+  --text-label--line-height: 1.2;
+  --text-label--letter-spacing: var(--tracking-wide);
+
+  /* 14px, button text */
+  --text-button: 0.875rem;
+  --text-button--font-weight: 500;
+  --text-button--line-height: 1;
+  --text-button--letter-spacing: var(--tracking-normal);
+
+  /* 14px, secondary copy */
+  --text-small: 0.875rem;
+  --text-small--font-weight: 400;
+  --text-small--line-height: 1.5;
+  --text-small--letter-spacing: var(--tracking-normal);
+
+  /* 17px, standard body copy */
+  --text-body: 1.0625rem;
+  --text-body--font-weight: 400;
+  --text-body--line-height: 1.65;
+  --text-body--letter-spacing: var(--tracking-normal);
+
+  /* 19px, lead paragraphs */
+  --text-lead: 1.1875rem;
+  --text-lead--font-weight: 400;
+  --text-lead--line-height: 1.65;
+  --text-lead--letter-spacing: var(--tracking-normal);
+
+  /* 22px, card / small section headings */
+  --text-h3: 1.375rem;
+  --text-h3--font-weight: 500;
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: var(--tracking-snug);
+
+  /* fluid 28px -> 32px, section headings */
+  --text-h2: clamp(1.75rem, 1.75rem + (2 - 1.75) * var(--fluid-slope), 2rem);
+  --text-h2--font-weight: 600;
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: var(--tracking-snug);
+
+  /* fluid 32px -> 40px, page headings */
+  --text-h1: clamp(2rem, 2rem + (2.5 - 2) * var(--fluid-slope), 2.5rem);
+  --text-h1--font-weight: 600;
+  --text-h1--line-height: 1.15;
+  --text-h1--letter-spacing: var(--tracking-snug);
+
+  /* fluid 36px -> 52px, hero display */
+  --text-display: clamp(2.25rem, 2.25rem + (3.25 - 2.25) * var(--fluid-slope), 3.25rem);
+  --text-display--font-weight: 600;
+  --text-display--line-height: 1.08;
+  --text-display--letter-spacing: var(--tracking-tight);
+}

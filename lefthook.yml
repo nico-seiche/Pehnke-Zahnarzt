@@ -1,0 +1,19 @@
+pre-commit:
+  parallel: true
+  commands:
+    # Lint and auto-fix staged files with Biome.
+    lint-staged:
+      run: NO_COLOR=1 npx --no-progress -- @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true --write {staged_files}
+      stage_fixed: true
+    # Partial typecheck for staged TS files.
+    typecheck-staged:
+      glob: "*.{ts,tsx}"
+      run: NO_COLOR=1 npx --no-progress -- tsc --noEmit --pretty false -p tsconfig.json
+      skip:
+        # Skip checking, because we will typecheck
+        # the full project when dependencies change.
+        - run: git diff --cached --name-only | grep -q "package-lock.json"
+    # Full typecheck when dependencies change.
+    typecheck-project:
+      glob: "package-lock.json"
+      run: NO_COLOR=1 npx --no-progress -- tsc --noEmit --pretty false -p tsconfig.json

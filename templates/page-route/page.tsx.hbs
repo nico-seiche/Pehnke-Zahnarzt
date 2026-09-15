@@ -1,0 +1,82 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { defineQuery } from "next-sanity";
+import { env } from "~/env";
+import { PageSections } from "~/features/page-builder/page-sections";
+import { sanityFetch } from "~/features/sanity/client";
+import { SeoMetadataFragment } from "~/features/site/seo/fragment";
+import { seo } from "~/features/site/seo/utils";
+import type { {{pascalCase documentType}}PageQResult, {{pascalCase documentType}}PageUrisQResult } from "~/sanity/types";
+
+const {{pascalCase documentType}}PageQ = defineQuery(`
+  *[_type == "{{camelCase documentType}}" && defined(uri.current) && uri.current == $uri][0]{
+    _id,
+    _type,
+    title,
+    "uri": coalesce(uri.current, "/{{kebabCase routePrefix}}"),
+    "seoMetadata": seoMetadata{\${SeoMetadataFragment}\}},
+  }
+`);
+
+async function fetch{{pascalCase documentType}}(uri: string) {
+  return sanityFetch<{{pascalCase documentType}}PageQResult>({
+    query: {{pascalCase documentType}}PageQ,
+    params: { uri },
+    options: {
+      next: {
+        tags: [uri],
+      },
+    },
+  });
+}
+
+const {{pascalCase documentType}}PageUrisQ = defineQuery(`
+  *[_type == "{{camelCase documentType}}" && defined(uri.current)]{
+    "uri": coalesce(uri.current, "/{{kebabCase routePrefix}}")
+  }
+`);
+
+export async function generateStaticParams() {
+  const uris = await sanityFetch<{{pascalCase documentType}}PageUrisQResult>({
+    query: {{pascalCase documentType}}PageUrisQ,
+    live: false,
+  });
+
+  return uris.map(({ uri }) => ({
+    slug: uri.replace("/{{kebabCase routePrefix}}/", ""),
+  }));
+}
+
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const params = await props.params;
+  const slug = params.slug;
+  const doc = await fetch{{pascalCase documentType}}(`/{{kebabCase routePrefix}}/${slug}`);
+
+  const { title, description, image, robots } = doc?.seoMetadata ?? {};
+
+  return await seo({
+    robots,
+    title: title ?? doc?.title ?? "Not Found",
+    description,
+    image,
+    canonical: `${env.NEXT_PUBLIC_URL}/{{kebabCase routePrefix}}/${slug}`,
+  });
+}
+
+export default async function {{pascalCase documentType}}Page(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
+  const slug = params.slug;
+  const doc = await fetch{{pascalCase documentType}}(`/{{kebabCase routePrefix}}/${slug}`);
+
+  if (!doc) {
+    notFound();
+  }
+
+  return (
+    <div>
+      <PageSections docId={doc._id} />
+    </div>
+  );
+}

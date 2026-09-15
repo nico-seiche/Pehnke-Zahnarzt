@@ -1,0 +1,129 @@
+/*
+ * Zahnarztpraxis Pehnke — color tokens, ported from the Penke design system
+ * (`design-system/tokens/colors.css`). Hellblau (light blue) primary, calm
+ * white/neutral surfaces, mint as secondary accent, sand reserved for quotes.
+ */
+@theme {
+  /* Reset default TW colors. */
+  --color-*: initial;
+
+  --color-unset: unset;
+  --color-initial: initial;
+  --color-inherit: inherit;
+  --color-current: currentColor;
+  --color-transparent: transparent;
+
+  --color-black: #000;
+  --color-white: #fff;
+
+  /* Hellblau — primary scale */
+  --color-blue-50: #f1fafe;
+  --color-blue-100: #e1f4fc;
+  --color-blue-200: #bce6f8;
+  --color-blue-300: #8ad3f1;
+  --color-blue-400: #55bce8;
+  --color-blue-500: #2ba3dc;
+  --color-blue-600: #1786be;
+  --color-blue-700: #136b99;
+  --color-blue-800: #14567a;
+  --color-blue-900: #163f58;
+
+  /* Mint — secondary, prophylaxis / calm topics */
+  --color-mint-50: #f0fbf9;
+  --color-mint-100: #dcf5f1;
+  --color-mint-200: #b6e9e1;
+  --color-mint-300: #86d8cd;
+  --color-mint-400: #57c8c0;
+  --color-mint-500: #33aaa3;
+  --color-mint-600: #238a86;
+  --color-mint-700: #1c6d6b;
+
+  /* Sand — warm accent, used sparingly (quotes only) */
+  --color-sand-100: #fbf4e9;
+  --color-sand-200: #f4e4c9;
+  --color-sand-400: #e0b978;
+  --color-sand-600: #a9803c;
+
+  /* Neutral — cool gray */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f7f9fb;
+  --color-neutral-100: #eef2f6;
+  --color-neutral-200: #e1e7ed;
+  --color-neutral-300: #cbd4dd;
+  --color-neutral-400: #9aa7b4;
+  --color-neutral-500: #6e7c8a;
+  --color-neutral-600: #526270;
+  --color-neutral-700: #3b4956;
+  --color-neutral-800: #26313b;
+  --color-neutral-900: #151d25;
+
+  /* Semantic */
+  --color-green-100: #e3f5eb;
+  --color-green-500: #2fa36b;
+  --color-green-700: #1f7a4f;
+  --color-amber-100: #fdf1da;
+  --color-amber-500: #e0a22b;
+  --color-amber-700: #9a6c12;
+  --color-red-100: #fce8e7;
+  --color-red-500: #d8453f;
+  --color-red-700: #a12f2a;
+
+  /* ---- Semantic aliases (brand, text, surfaces, borders) ---- */
+  --color-brand: var(--color-blue-500);
+  --color-brand-strong: var(--color-blue-600);
+  --color-brand-deep: var(--color-blue-800);
+  --color-brand-soft: var(--color-blue-100);
+  --color-brand-tint: var(--color-blue-50);
+  --color-brand-secondary: var(--color-mint-400);
+
+  --color-text-heading: var(--color-blue-900);
+  --color-text-body: var(--color-neutral-700);
+  --color-text-muted: var(--color-neutral-500);
+  --color-text-subtle: var(--color-neutral-400);
+  --color-text-on-brand: #ffffff;
+  --color-text-link: var(--color-blue-600);
+  --color-text-link-hover: var(--color-blue-800);
+
+  --color-surface-page: var(--color-neutral-0);
+  --color-surface-alt: var(--color-neutral-50);
+  --color-surface-card: var(--color-neutral-0);
+  --color-surface-tint: var(--color-blue-50);
+  --color-surface-brand: var(--color-blue-500);
+  --color-surface-deep: var(--color-blue-900);
+  --color-surface-overlay: rgba(21, 29, 37, 0.55);
+  --color-surface-glass: rgba(255, 255, 255, 0.86);
+
+  --color-border-subtle: var(--color-neutral-200);
+  --color-border-default: var(--color-neutral-300);
+  --color-border-brand: var(--color-blue-300);
+  --color-focus-ring: var(--color-blue-400);
+
+  --color-state-success-bg: var(--color-green-100);
+  --color-state-success-fg: var(--color-green-700);
+  --color-state-warning-bg: var(--color-amber-100);
+  --color-state-warning-fg: var(--color-amber-700);
+  --color-state-danger-bg: var(--color-red-100);
+  --color-state-danger-fg: var(--color-red-700);
+  --color-state-info-bg: var(--color-blue-100);
+  --color-state-info-fg: var(--color-blue-700);
+}
+
+/* Gradients aren't themeable colors in Tailwind v4 — kept as plain custom
+   properties and applied via small utility classes below. */
+:root {
+  --gradient-hero: linear-gradient(168deg, var(--color-blue-50) 0%, #ffffff 62%);
+  --gradient-brand: linear-gradient(135deg, var(--color-blue-400) 0%, var(--color-blue-600) 100%);
+  --gradient-protect: linear-gradient(to top, rgba(22, 63, 88, 0.72) 0%, rgba(22, 63, 88, 0) 72%);
+}
+
+@utility bg-gradient-hero {
+  background: var(--gradient-hero);
+}
+
+@utility bg-gradient-brand {
+  background: var(--gradient-brand);
+}
+
+@utility bg-gradient-protect {
+  background: var(--gradient-protect);
+}

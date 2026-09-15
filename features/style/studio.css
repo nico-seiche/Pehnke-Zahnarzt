@@ -1,0 +1,54 @@
+/** biome-ignore-all lint/complexity/noImportantStyles: Required to override some inline styles! */
+html {
+  background-color: #111111;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Truncate the text in grid dialogs. */
+[data-ui="Popover"] [data-ui="MenuItem"] [data-ui="Text"] span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Removes redundant object border in mux video components */
+[data-testid*=".appMedia.video"] > [data-ui="Box"] {
+  border-left: 0;
+  padding-left: 0;
+}
+
+/* Adds support for dynamic heights of portable text input fields */
+fieldset [data-testid="pt-editor"][data-fullscreen="false"] {
+  height: var(--pt-editor-height, initial);
+}
+
+/* Fix for Autocomplete dropdown opacity animation inside portable text annotations */
+/* The popover animation doesn't complete properly when rendered in portable text context */
+/* Disable animations globally using Sanity's CSS variables */
+:root {
+  --motion-content-opacity: 1;
+}
+
+/* Disable all animations and transitions for popovers */
+[data-ui="Popover"] {
+  transition: none !important;
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+/* Fix nested elements */
+[data-ui="Popover"] [data-ui="Popover_wrapper"],
+[data-ui="Popover"] [data-ui] {
+  transition: none !important;
+  animation: none !important;
+  opacity: 1 !important;
+}

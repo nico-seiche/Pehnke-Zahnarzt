@@ -1,0 +1,55 @@
+{
+  "context_servers": {
+    "next-devtools": {
+      "source": "custom",
+      "command": "npx",
+      "args": ["-y", "next-devtools-mcp@latest"]
+    }
+  },
+  "format_on_save": "on",
+  "lsp": {
+    "biome": {
+      "settings": {
+        "require_config_file": true
+      }
+    }
+  },
+  "languages": {
+    "TypeScript": {
+      "language_servers": ["...", "biome", "!eslint"],
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true
+      }
+    },
+    "TSX": {
+      "language_servers": ["...", "biome", "!eslint"],
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true
+      }
+    },
+    "JavaScript": {
+      "language_servers": ["...", "biome", "!eslint"],
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true
+      }
+    },
+    "JSON": {
+      "formatter": { "language_server": { "name": "biome" } }
+    },
+    "JSONC": {
+      "formatter": { "language_server": { "name": "biome" } }
+    },
+    "CSS": {
+      "formatter": { "language_server": { "name": "biome" } }
+    },
+    "HTML": {
+      "formatter": { "language_server": { "name": "biome" } }
+    }
+  },
+  "file_types": {
+    "Markdown": ["mdc"]
+  }
+}

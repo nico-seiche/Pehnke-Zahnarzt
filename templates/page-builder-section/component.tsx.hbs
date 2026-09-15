@@ -1,0 +1,32 @@
+import { defineQuery, stegaClean } from "next-sanity";
+import { sanityFetch } from "~/features/sanity/client";
+import type { {{pascalCase name}}QResult } from "~/sanity/types";
+
+const {{pascalCase name}}Q =
+  defineQuery(`*[_id == $docId][0].pageBuilder.sectionsArray[_type == "{{camelCase name}}Field" && _key == $sectionKey][0]{
+    "content": sectionContent{
+      ...
+    },
+    "settings": sectionSettings{
+      "hash": coalesce(sectionHash.current, _key),
+    },
+}`);
+
+export async function {{pascalCase name}}({ docId, sectionKey }: { docId: string; sectionKey: string }) {
+  const section = await sanityFetch<{{pascalCase name}}QResult>({
+    query: {{pascalCase name}}Q,
+    params: { docId, sectionKey },
+    options: { next: { tags: [`doc:${docId}`] } },
+  });
+
+  if (!section?.content) {
+    return null;
+  }
+
+  return (
+    // stegaClean the hash: in preview the id is stega-encoded, which breaks same-page hash scrolling.
+    <div id={stegaClean(section.settings?.hash)} data-page-builder-section="{{camelCase name}}" className="bg-[red] py-64">
+      <code>{JSON.stringify(section.content)}</code>
+    </div>
+  );
+}
