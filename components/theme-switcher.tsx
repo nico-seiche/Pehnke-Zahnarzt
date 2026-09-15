@@ -10,6 +10,9 @@ const THEMES: { value: ColorTheme; label: string; swatch: string }[] = [
   { value: "blue", label: "Blau", swatch: "#2ba3dc" },
   { value: "mint", label: "Mint", swatch: "#33aaa3" },
   { value: "beige", label: "Beige", swatch: "#a9803c" },
+  { value: "turquoise", label: "Türkis", swatch: "#1c9d95" },
+  { value: "lavender", label: "Lavendel", swatch: "#7e5cc7" },
+  { value: "terracotta", label: "Terracotta", swatch: "#e06a3d" },
 ];
 
 function applyTheme(theme: ColorTheme) {
@@ -22,7 +25,7 @@ function applyTheme(theme: ColorTheme) {
   }
 }
 
-/** Floating button that switches the site's accent color scheme (blue / mint / beige). */
+/** Floating button that switches the site's accent color scheme. */
 export function ThemeSwitcher() {
   const [opened, { toggle, close }] = useDisclosure(false);
   const [theme, setTheme] = React.useState<ColorTheme>("blue");
@@ -43,22 +46,27 @@ export function ThemeSwitcher() {
   }
 
   return (
-    <div ref={ref} className="fixed right-16 bottom-16 z-50 flex flex-col items-center gap-8 sm:right-24 sm:bottom-24">
+    <div ref={ref} className="fixed right-16 bottom-16 z-50 flex flex-col items-end gap-8 sm:right-24 sm:bottom-24">
       {opened && (
-        <div className="reveal-group flex flex-col gap-8 rounded-pill bg-surface-card p-8 shadow-lg">
+        <div className="reveal-group grid grid-cols-3 gap-16 rounded-panel bg-surface-card p-16 shadow-lg">
           {THEMES.map((t) => (
             <button
               key={t.value}
               type="button"
-              aria-label={`Farbschema ${t.label}`}
               aria-pressed={theme === t.value}
+              aria-label={t.label}
               onClick={() => handleSelect(t.value)}
-              className={cx(
-                "size-32 shrink-0 cursor-pointer rounded-full border-2 transition-transform duration-160 ease-out hover:scale-110",
-                theme === t.value ? "border-text-heading" : "border-transparent"
-              )}
-              style={{ backgroundColor: t.swatch }}
-            />
+              className="flex cursor-pointer flex-col items-center gap-6"
+            >
+              <span
+                className={cx(
+                  "size-32 shrink-0 rounded-full border-2 transition-transform duration-160 ease-out hover:scale-110",
+                  theme === t.value ? "border-text-heading" : "border-transparent"
+                )}
+                style={{ backgroundColor: t.swatch }}
+              />
+              <span className="font-sans text-caption text-text-muted">{t.label}</span>
+            </button>
           ))}
         </div>
       )}

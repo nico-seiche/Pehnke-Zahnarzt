@@ -44,6 +44,36 @@
   --color-sand-400: #e0b978;
   --color-sand-600: #a9803c;
 
+  /* Türkis — color-theme option, fresh/clean (toothpaste-adjacent) */
+  --color-turquoise-50: #eefbfa;
+  --color-turquoise-100: #d3f4f1;
+  --color-turquoise-200: #a3e7e2;
+  --color-turquoise-300: #6dd4cd;
+  --color-turquoise-400: #3bbcb3;
+  --color-turquoise-500: #1c9d95;
+  --color-turquoise-600: #147d77;
+  --color-turquoise-700: #106561;
+
+  /* Lavendel — color-theme option, calm/premium */
+  --color-lavender-50: #f6f3fc;
+  --color-lavender-100: #ece5f8;
+  --color-lavender-200: #d4c5f0;
+  --color-lavender-300: #b69ce3;
+  --color-lavender-400: #9a79d6;
+  --color-lavender-500: #7e5cc7;
+  --color-lavender-600: #6647a8;
+  --color-lavender-700: #513687;
+
+  /* Terracotta — color-theme option, warm/friendly */
+  --color-terracotta-50: #fef2ee;
+  --color-terracotta-100: #fce1d7;
+  --color-terracotta-200: #f8c3af;
+  --color-terracotta-300: #f2a37f;
+  --color-terracotta-400: #ec8257;
+  --color-terracotta-500: #e06a3d;
+  --color-terracotta-600: #bd5330;
+  --color-terracotta-700: #954128;
+
   /* Neutral — cool gray */
   --color-neutral-0: #ffffff;
   --color-neutral-50: #f7f9fb;
@@ -173,4 +203,61 @@
 
   --gradient-hero: linear-gradient(168deg, var(--color-sand-200) 0%, var(--color-sand-100) 62%);
   --gradient-brand: linear-gradient(135deg, var(--color-sand-400) 0%, #8a672f 100%);
+}
+
+/* Türkis — frisch, an Zahnpasta/klinische Sauberkeit angelehnt. */
+:root[data-theme="turquoise"] {
+  --color-brand: var(--color-turquoise-500);
+  --color-brand-strong: var(--color-turquoise-600);
+  --color-brand-deep: var(--color-turquoise-700);
+  --color-brand-soft: var(--color-turquoise-100);
+  --color-brand-tint: var(--color-turquoise-50);
+
+  --color-text-link: var(--color-turquoise-600);
+  --color-text-link-hover: var(--color-turquoise-700);
+
+  --color-surface-tint: var(--color-turquoise-50);
+  --color-border-brand: var(--color-turquoise-300);
+  --color-focus-ring: var(--color-turquoise-400);
+
+  --gradient-hero: linear-gradient(168deg, var(--color-turquoise-50) 0%, #ffffff 62%);
+  --gradient-brand: linear-gradient(135deg, var(--color-turquoise-400) 0%, var(--color-turquoise-600) 100%);
+}
+
+/* Lavendel — ruhig, in moderner Zahnmedizin ein beliebter beruhigender Akzent. */
+:root[data-theme="lavender"] {
+  --color-brand: var(--color-lavender-500);
+  --color-brand-strong: var(--color-lavender-600);
+  --color-brand-deep: var(--color-lavender-700);
+  --color-brand-soft: var(--color-lavender-100);
+  --color-brand-tint: var(--color-lavender-50);
+
+  --color-text-link: var(--color-lavender-600);
+  --color-text-link-hover: var(--color-lavender-700);
+
+  --color-surface-tint: var(--color-lavender-50);
+  --color-border-brand: var(--color-lavender-300);
+  --color-focus-ring: var(--color-lavender-400);
+
+  --gradient-hero: linear-gradient(168deg, var(--color-lavender-50) 0%, #ffffff 62%);
+  --gradient-brand: linear-gradient(135deg, var(--color-lavender-400) 0%, var(--color-lavender-600) 100%);
+}
+
+/* Terracotta — warm, einladend, weniger klinisch. */
+:root[data-theme="terracotta"] {
+  --color-brand: var(--color-terracotta-500);
+  --color-brand-strong: var(--color-terracotta-600);
+  --color-brand-deep: var(--color-terracotta-700);
+  --color-brand-soft: var(--color-terracotta-100);
+  --color-brand-tint: var(--color-terracotta-50);
+
+  --color-text-link: var(--color-terracotta-600);
+  --color-text-link-hover: var(--color-terracotta-700);
+
+  --color-surface-tint: var(--color-terracotta-50);
+  --color-border-brand: var(--color-terracotta-300);
+  --color-focus-ring: var(--color-terracotta-400);
+
+  --gradient-hero: linear-gradient(168deg, var(--color-terracotta-50) 0%, #ffffff 62%);
+  --gradient-brand: linear-gradient(135deg, var(--color-terracotta-400) 0%, var(--color-terracotta-600) 100%);
 }
