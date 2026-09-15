@@ -61,7 +61,7 @@ const sanityRichTextPortableTextComponents: Partial<PortableTextReactComponents>
     },
     code: ({ children }) => {
       return (
-        <code className="rounded-xs bg-brand-tint px-[0.4em] py-[0.1em] font-mono text-[0.9em] text-blue-800">{children}</code>
+        <code className="rounded-xs bg-brand-tint px-[0.4em] py-[0.1em] font-mono text-[0.9em] text-brand-deep">{children}</code>
       );
     },
     underline: ({ children }) => {

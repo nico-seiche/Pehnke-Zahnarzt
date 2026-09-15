@@ -5,7 +5,7 @@ const styles = cva({
   base: "inline-flex items-center gap-4 rounded-pill px-12 py-6 font-sans text-label tracking-[0.02em]",
   variants: {
     tone: {
-      brand: "bg-brand-soft text-blue-800",
+      brand: "bg-brand-soft text-brand-deep",
       neutral: "bg-neutral-100 text-neutral-700",
       success: "bg-state-success-bg text-state-success-fg",
       warning: "bg-state-warning-bg text-state-warning-fg",

@@ -15,10 +15,10 @@ const styles = cva({
   variants: {
     variant: {
       primary: "bg-brand text-text-on-brand shadow-brand hover:bg-brand-strong",
-      secondary: "bg-brand-soft text-blue-800 hover:bg-blue-200",
-      outline: "border-border-brand bg-transparent text-brand-strong hover:border-blue-400 hover:bg-brand-tint",
+      secondary: "bg-brand-soft text-brand-deep hover:brightness-95",
+      outline: "border-border-brand bg-transparent text-brand-strong hover:border-brand hover:bg-brand-tint",
       ghost: "bg-transparent text-brand-strong hover:bg-brand-tint",
-      onDark: "bg-white text-blue-800 hover:bg-blue-50",
+      onDark: "bg-white text-brand-deep hover:bg-brand-tint",
     },
     size: {
       sm: "h-36 px-16 text-small",

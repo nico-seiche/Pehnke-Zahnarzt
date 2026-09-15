@@ -127,3 +127,50 @@
 @utility bg-gradient-protect {
   background: var(--gradient-protect);
 }
+
+/*
+ * Color-scheme switcher (floating button, see ~/components/theme-switcher).
+ * Overrides the brand accent tokens above; "blue" is the default and needs
+ * no override block. Chosen scheme is stored in localStorage per viewer and
+ * applied via a `data-theme` attribute on <html> (set pre-hydration to
+ * avoid a flash — see the inline script in `app/shared-web-layout.tsx`).
+ */
+:root[data-theme="mint"] {
+  --color-brand: var(--color-mint-500);
+  --color-brand-strong: var(--color-mint-600);
+  --color-brand-deep: var(--color-mint-700);
+  --color-brand-soft: var(--color-mint-100);
+  --color-brand-tint: var(--color-mint-50);
+
+  --color-text-link: var(--color-mint-600);
+  --color-text-link-hover: var(--color-mint-700);
+
+  --color-surface-tint: var(--color-mint-50);
+  --color-border-brand: var(--color-mint-300);
+  --color-focus-ring: var(--color-mint-400);
+
+  --gradient-hero: linear-gradient(168deg, var(--color-mint-50) 0%, #ffffff 62%);
+  --gradient-brand: linear-gradient(135deg, var(--color-mint-400) 0%, var(--color-mint-600) 100%);
+}
+
+/* Very light, warm beige — washes across the whole page (surfaces, not just the accent). */
+:root[data-theme="beige"] {
+  --color-brand: var(--color-sand-600);
+  --color-brand-strong: #8a672f;
+  --color-brand-deep: #6b4f22;
+  --color-brand-soft: var(--color-sand-200);
+  --color-brand-tint: var(--color-sand-100);
+
+  --color-text-link: #8a672f;
+  --color-text-link-hover: #6b4f22;
+
+  --color-surface-page: var(--color-sand-100);
+  --color-surface-alt: #f3e7d2;
+  --color-surface-card: var(--color-neutral-0);
+  --color-surface-tint: #f3e7d2;
+  --color-border-brand: var(--color-sand-400);
+  --color-focus-ring: var(--color-sand-400);
+
+  --gradient-hero: linear-gradient(168deg, var(--color-sand-200) 0%, var(--color-sand-100) 62%);
+  --gradient-brand: linear-gradient(135deg, var(--color-sand-400) 0%, #8a672f 100%);
+}

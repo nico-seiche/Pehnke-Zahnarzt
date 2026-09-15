@@ -12,7 +12,7 @@ import { IS_DEV } from "~/features/utils/constants";
 const initialState: ActionResult = { success: false as const, error: "", fieldErrors: {} };
 
 const fieldClassName =
-  "block w-full rounded-md border border-border-default bg-surface-page px-12 py-10 font-sans text-body text-text-body transition-colors duration-160 ease-out hover:border-blue-400 focus-visible:border-brand disabled:opacity-50";
+  "block w-full rounded-md border border-border-default bg-surface-page px-12 py-10 font-sans text-body text-text-body transition-colors duration-160 ease-out hover:border-brand focus-visible:border-brand disabled:opacity-50";
 
 type FieldShellProps = {
   id: string;

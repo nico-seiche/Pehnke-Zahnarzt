@@ -7,7 +7,7 @@ const styles = cva({
     variant: {
       raised: "border border-border-subtle bg-surface-card shadow-sm",
       flat: "border border-transparent bg-surface-alt",
-      tint: "border border-blue-100 bg-surface-tint",
+      tint: "border border-brand-soft bg-surface-tint",
       outline: "border border-border-default bg-surface-card",
       deep: "border border-transparent bg-surface-deep text-blue-100 shadow-lg",
     },
