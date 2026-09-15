@@ -64,6 +64,12 @@ export function buildStructure(S: StructureBuilder) {
             )
         ),
 
+      // Leistungen (services), grouped by category on the front end
+      S.listItem()
+        .title("Leistungen")
+        .icon(() => <>🦷</>)
+        .child(S.documentTypeList("service").title("Leistungen").apiVersion(sanityConfig.apiVersion)),
+
       // PLOP: Add Structure
 
       S.divider(),

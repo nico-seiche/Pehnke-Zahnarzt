@@ -3,6 +3,7 @@ import { articleCategory } from "./documents/article-category";
 import { contactFormSubmission } from "./documents/contact-form-submission";
 import { page } from "./documents/page";
 import { redirect } from "./documents/redirect";
+import { service } from "./documents/service";
 import { site } from "./documents/site";
 import { appColor } from "./fields/app-color";
 import { aspectRatio } from "./fields/aspect-ratio";
@@ -20,6 +21,7 @@ export const schemaTypes = [
   contactFormSubmission,
   article,
   articleCategory,
+  service,
   aspectRatio,
   videoOptions,
   riveOptions,

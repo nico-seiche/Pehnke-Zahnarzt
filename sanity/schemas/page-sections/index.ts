@@ -4,6 +4,7 @@ import { ctaSection } from "./cta-section";
 import { facilitySection } from "./facility-section";
 import { heroSection } from "./hero-section";
 import { mediaSection } from "./media-section";
+import { servicesListSection } from "./services-list-section";
 import { servicesSection } from "./services-section";
 import { teamSection } from "./team-section";
 import { testimonialHoursSection } from "./testimonial-hours-section";
@@ -13,6 +14,7 @@ import { textSection } from "./text-section";
 export const sections = [
   heroSection,
   servicesSection,
+  servicesListSection,
   facilitySection,
   teamSection,
   testimonialHoursSection,

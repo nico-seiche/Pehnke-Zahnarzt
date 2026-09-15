@@ -889,6 +889,15 @@ export type FacilitySection = {
   }>;
 };
 
+export type ServicesListSection = {
+  _type: "servicesListSection";
+  eyebrow?: string;
+  title?: string;
+  lead?: string;
+  infoNote?: string;
+  selbstzahlerLead?: string;
+};
+
 export type ServicesSection = {
   _type: "servicesSection";
   eyebrow?: string;
@@ -952,6 +961,20 @@ export type AspectRatio =
   | 1.4
   | 0.7142857142857143;
 
+export type Service = {
+  _id: string;
+  _type: "service";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  category?: "kasse" | "selbstzahler";
+  appIcon?: string;
+  text?: string;
+  meta?: string;
+  order?: number;
+};
+
 export type ArticleCategory = {
   _id: string;
   _type: "articleCategory";
@@ -1005,6 +1028,12 @@ export type Article = {
           sectionSettings?: SectionSettings;
           sectionContent?: ServicesSection;
           _type: "servicesSectionField";
+          _key: string;
+        }
+      | {
+          sectionSettings?: SectionSettings;
+          sectionContent?: ServicesListSection;
+          _type: "servicesListSectionField";
           _key: string;
         }
       | {
@@ -1394,6 +1423,12 @@ export type Page = {
         }
       | {
           sectionSettings?: SectionSettings;
+          sectionContent?: ServicesListSection;
+          _type: "servicesListSectionField";
+          _key: string;
+        }
+      | {
+          sectionSettings?: SectionSettings;
           sectionContent?: FacilitySection;
           _type: "facilitySectionField";
           _key: string;
@@ -1778,6 +1813,7 @@ export type AllSanitySchemaTypes =
   | TestimonialHoursSection
   | TeamSection
   | FacilitySection
+  | ServicesListSection
   | ServicesSection
   | HeroSection
   | AppColor
@@ -1785,6 +1821,7 @@ export type AllSanitySchemaTypes =
   | RiveOptions
   | VideoOptions
   | AspectRatio
+  | Service
   | ArticleCategory
   | ArticleCategoryReference
   | Article
@@ -2089,6 +2126,14 @@ export type AgentMarkdownContentQueryResult =
             caption: string | undefined;
           }
         | {
+            _type: "servicesListSectionField";
+            text: null;
+            media: null;
+            cta: null;
+            headline: null;
+            caption: null;
+          }
+        | {
             _type: "servicesSectionField";
             text: null;
             media: null;
@@ -2330,6 +2375,14 @@ export type AgentMarkdownContentQueryResult =
             caption: string | undefined;
           }
         | {
+            _type: "servicesListSectionField";
+            text: null;
+            media: null;
+            cta: null;
+            headline: null;
+            caption: null;
+          }
+        | {
             _type: "servicesSectionField";
             text: null;
             media: null;
@@ -2454,6 +2507,10 @@ export type PageSectionsQResult = Array<
   | {
       _key: string;
       _type: "mediaSectionField";
+    }
+  | {
+      _key: string;
+      _type: "servicesListSectionField";
     }
   | {
       _key: string;
@@ -3025,6 +3082,34 @@ export type MediaSectionQResult = {
     hash: string | undefined;
   } | undefined;
 } | undefined;
+
+// Source: features/page-builder/sections/services-list-section.tsx
+// Variable: ServicesListSectionQ
+// Query: *[_id == $docId][0].pageBuilder.sectionsArray[_type == "servicesListSectionField" && _key == $sectionKey][0]{    "content": sectionContent{      eyebrow,      title,      lead,      infoNote,      selbstzahlerLead,    },    "settings": sectionSettings {      "hash": coalesce(sectionHash.current, _key),    }}
+export type ServicesListSectionQResult = {
+  content: {
+    eyebrow: string | undefined;
+    title: string | undefined;
+    lead: string | undefined;
+    infoNote: string | undefined;
+    selbstzahlerLead: string | undefined;
+  } | undefined;
+  settings: {
+    hash: string | undefined;
+  } | undefined;
+} | undefined;
+
+// Source: features/page-builder/sections/services-list-section.tsx
+// Variable: AllServicesQ
+// Query: *[_type == "service"] | order(coalesce(order, 9999) asc, title asc) {    "key": _id,    title,    category,    appIcon,    text,    meta,  }
+export type AllServicesQResult = Array<{
+  key: string;
+  title: string | undefined;
+  category: "kasse" | "selbstzahler" | undefined;
+  appIcon: string | undefined;
+  text: string | undefined;
+  meta: string | undefined;
+}>;
 
 // Source: features/page-builder/sections/services-section.tsx
 // Variable: ServicesSectionQ

@@ -19,6 +19,9 @@ const _sections = {
   servicesSectionField: dynamic(() =>
     import("~/features/page-builder/sections/services-section").then((mod) => mod.ServicesSection)
   ),
+  servicesListSectionField: dynamic(() =>
+    import("~/features/page-builder/sections/services-list-section").then((mod) => mod.ServicesListSection)
+  ),
   facilitySectionField: dynamic(() =>
     import("~/features/page-builder/sections/facility-section").then((mod) => mod.FacilitySection)
   ),

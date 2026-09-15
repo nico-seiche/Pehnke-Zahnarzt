@@ -1,8 +1,7 @@
 import { defineQuery, stegaClean } from "next-sanity";
-import { Card } from "~/components/card";
 import type { IconName } from "~/components/icon";
-import { Icon } from "~/components/icon";
 import { SectionHeading } from "~/components/section-heading";
+import { ServiceCard } from "~/components/service-card";
 import { sanityFetch } from "~/features/sanity/client";
 import { SanityLink, SanityLinkIcon } from "~/features/sanity/link";
 import { LinkFragment } from "~/features/sanity/link/fragment";
@@ -49,14 +48,13 @@ export async function ServicesSection({ docId, sectionKey }: { docId: string; se
         {items && items.length > 0 && (
           <div className="reveal-group grid gap-24 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item) => (
-              <Card key={item.key} className="flex flex-col items-start gap-16">
-                <span className="flex size-46 items-center justify-center rounded-md bg-brand-soft text-brand-strong">
-                  {item.appIcon && <Icon name={item.appIcon as IconName} className="text-[22px]" />}
-                </span>
-                <h3 className="font-display text-h3 text-text-heading">{item.title}</h3>
-                <p className="font-sans text-small text-text-muted leading-relaxed">{item.text}</p>
-                {item.meta && <span className="font-sans text-brand-strong text-label tracking-[0.02em]">{item.meta}</span>}
-              </Card>
+              <ServiceCard
+                key={item.key}
+                icon={item.appIcon as IconName | null}
+                title={item.title ?? ""}
+                text={item.text}
+                meta={item.meta}
+              />
             ))}
           </div>
         )}
