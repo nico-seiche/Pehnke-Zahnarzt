@@ -12,7 +12,7 @@ const THEMES: { value: ColorTheme; label: string; swatch: string }[] = [
   { value: "beige", label: "Beige", swatch: "#a9803c" },
   { value: "turquoise", label: "Türkis", swatch: "#1c9d95" },
   { value: "lavender", label: "Lavendel", swatch: "#7e5cc7" },
-  { value: "sage", label: "Salbei", swatch: "#708c50" },
+  { value: "sage", label: "Salbei", swatch: "#5f9550" },
 ];
 
 function applyTheme(theme: ColorTheme) {

@@ -64,15 +64,19 @@
   --color-lavender-600: #6647a8;
   --color-lavender-700: #513687;
 
-  /* Salbei — color-theme option, calm/natural, herbal-green */
-  --color-sage-50: #f3f6ef;
-  --color-sage-100: #e4ead9;
-  --color-sage-200: #c9d7b6;
-  --color-sage-300: #a9bf8c;
-  --color-sage-400: #8aa66a;
-  --color-sage-500: #708c50;
-  --color-sage-600: #5a713f;
-  --color-sage-700: #495c33;
+  /* Salbei — color-theme option, calm/natural, herbal-green.
+     Anchored on Miss Pompadour "Grün mit Salbei" (sampled from the product's
+     wall-swatch photo, ~#b1bcae); sage-300 matches that tone directly, the
+     lighter steps stay true to its muted gray-green cast, and 500/600 add
+     saturation/contrast for buttons and links. */
+  --color-sage-50: #f4f7f3;
+  --color-sage-100: #e5ede3;
+  --color-sage-200: #d0dbcd;
+  --color-sage-300: #b1bcae;
+  --color-sage-400: #88a97e;
+  --color-sage-500: #5f9550;
+  --color-sage-600: #48783b;
+  --color-sage-700: #375e2c;
 
   /* Neutral — cool gray */
   --color-neutral-0: #ffffff;
