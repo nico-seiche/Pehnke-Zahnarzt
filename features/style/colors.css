@@ -64,15 +64,15 @@
   --color-lavender-600: #6647a8;
   --color-lavender-700: #513687;
 
-  /* Terracotta — color-theme option, warm/friendly */
-  --color-terracotta-50: #fef2ee;
-  --color-terracotta-100: #fce1d7;
-  --color-terracotta-200: #f8c3af;
-  --color-terracotta-300: #f2a37f;
-  --color-terracotta-400: #ec8257;
-  --color-terracotta-500: #e06a3d;
-  --color-terracotta-600: #bd5330;
-  --color-terracotta-700: #954128;
+  /* Salbei — color-theme option, calm/natural, herbal-green */
+  --color-sage-50: #f3f6ef;
+  --color-sage-100: #e4ead9;
+  --color-sage-200: #c9d7b6;
+  --color-sage-300: #a9bf8c;
+  --color-sage-400: #8aa66a;
+  --color-sage-500: #708c50;
+  --color-sage-600: #5a713f;
+  --color-sage-700: #495c33;
 
   /* Neutral — cool gray */
   --color-neutral-0: #ffffff;
@@ -243,21 +243,21 @@
   --gradient-brand: linear-gradient(135deg, var(--color-lavender-400) 0%, var(--color-lavender-600) 100%);
 }
 
-/* Terracotta — warm, einladend, weniger klinisch. */
-:root[data-theme="terracotta"] {
-  --color-brand: var(--color-terracotta-500);
-  --color-brand-strong: var(--color-terracotta-600);
-  --color-brand-deep: var(--color-terracotta-700);
-  --color-brand-soft: var(--color-terracotta-100);
-  --color-brand-tint: var(--color-terracotta-50);
+/* Salbei — ruhig, natürlich, krautig-grün. */
+:root[data-theme="sage"] {
+  --color-brand: var(--color-sage-500);
+  --color-brand-strong: var(--color-sage-600);
+  --color-brand-deep: var(--color-sage-700);
+  --color-brand-soft: var(--color-sage-100);
+  --color-brand-tint: var(--color-sage-50);
 
-  --color-text-link: var(--color-terracotta-600);
-  --color-text-link-hover: var(--color-terracotta-700);
+  --color-text-link: var(--color-sage-600);
+  --color-text-link-hover: var(--color-sage-700);
 
-  --color-surface-tint: var(--color-terracotta-50);
-  --color-border-brand: var(--color-terracotta-300);
-  --color-focus-ring: var(--color-terracotta-400);
+  --color-surface-tint: var(--color-sage-50);
+  --color-border-brand: var(--color-sage-300);
+  --color-focus-ring: var(--color-sage-400);
 
-  --gradient-hero: linear-gradient(168deg, var(--color-terracotta-50) 0%, #ffffff 62%);
-  --gradient-brand: linear-gradient(135deg, var(--color-terracotta-400) 0%, var(--color-terracotta-600) 100%);
+  --gradient-hero: linear-gradient(168deg, var(--color-sage-50) 0%, #ffffff 62%);
+  --gradient-brand: linear-gradient(135deg, var(--color-sage-400) 0%, var(--color-sage-600) 100%);
 }
