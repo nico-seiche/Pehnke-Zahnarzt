@@ -46,7 +46,7 @@ export async function ServicesSection({ docId, sectionKey }: { docId: string; se
         <SectionHeading eyebrow={eyebrow ?? undefined} title={title ?? ""} lead={lead ?? undefined} />
 
         {items && items.length > 0 && (
-          <div className="reveal-group grid gap-24 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="reveal-group grid border-border-subtle border-t border-l sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item) => (
               <ServiceCard
                 key={item.key}

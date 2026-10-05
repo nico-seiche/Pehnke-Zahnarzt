@@ -21,9 +21,16 @@ export function SiteHeaderBar({ name, phone, links, cta }: SiteHeaderBarProps) {
   return (
     <header className="sticky top-0 z-40 border-border-subtle border-b bg-surface-glass backdrop-blur-md">
       <div className="container-page flex items-center gap-16 py-12 lg:gap-32 lg:py-16">
-        <Link href="/" onClick={close} className="flex items-baseline gap-8 no-underline hover:no-underline">
-          <span className="font-display font-medium text-h3 text-text-heading tracking-snug">Pehnke</span>
-          <span className="hidden font-sans text-caption text-text-muted sm:inline">{name}</span>
+        <Link href="/" onClick={close} className="flex items-center gap-10 no-underline hover:no-underline">
+          <span className="flex size-40 shrink-0 items-center justify-center rounded-md border border-brand text-brand">
+            <Icon name="tooth" className="text-[20px]" />
+          </span>
+          <span className="flex flex-col leading-tight">
+            <span className="font-bold font-sans text-[12px] text-text-heading uppercase tracking-wide">Zahnarztpraxis</span>
+            <span className="font-sans text-[12px] text-text-muted uppercase tracking-wide">
+              {name.replace(/^Zahnarztpraxis\s+/i, "")}
+            </span>
+          </span>
         </Link>
 
         <nav aria-label="Hauptnavigation" className="ml-auto hidden items-center gap-24 lg:flex">
@@ -43,7 +50,12 @@ export function SiteHeaderBar({ name, phone, links, cta }: SiteHeaderBarProps) {
             </a>
           )}
           {cta?.href && (
-            <Button asChild size="sm" className="hidden sm:inline-flex">
+            <Button
+              asChild
+              size="sm"
+              className="hidden sm:inline-flex"
+              leftIcon={<Icon name="calendar-check" className="text-[16px]" />}
+            >
               <SanityLink link={cta}>{cta.text}</SanityLink>
             </Button>
           )}

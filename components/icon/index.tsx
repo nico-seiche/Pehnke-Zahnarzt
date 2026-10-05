@@ -30,6 +30,7 @@ import IconShieldCheck from "./icon-shield-check.svg";
 import IconSmile from "./icon-smile.svg";
 import IconSparkles from "./icon-sparkles.svg";
 import IconSun from "./icon-sun.svg";
+import IconTooth from "./icon-tooth.svg";
 import IconTriangleAlert from "./icon-triangle-alert.svg";
 import IconUser from "./icon-user.svg";
 import IconX from "./icon-x.svg";
@@ -67,6 +68,7 @@ const icons = {
   smile: IconSmile,
   sparkles: IconSparkles,
   sun: IconSun,
+  tooth: IconTooth,
   "triangle-alert": IconTriangleAlert,
   user: IconUser,
   x: IconX,

@@ -63,7 +63,7 @@ function ServiceGroup({
         <h2 className="font-display text-h2 text-text-heading">{heading}</h2>
       </div>
       {lead && <p className="max-w-[640px] font-sans text-body text-text-muted">{lead}</p>}
-      <div className="reveal-group grid gap-24 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="reveal-group grid border-border-subtle border-t border-l sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
           <ServiceCard key={s.key} icon={s.icon} title={s.title} text={s.text} meta={s.meta} />
         ))}
