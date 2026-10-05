@@ -44,7 +44,7 @@ export async function TestimonialHoursSection({ docId, sectionKey }: { docId: st
       <div className="container-page grid items-start gap-32 lg:grid-cols-[1.1fr_0.9fr]">
         {testimonial && (
           <blockquote className="reveal m-0 flex flex-col gap-16 rounded-panel bg-sand-100 p-32">
-            <p className="text-balance font-display font-light text-blue-900 text-h2 leading-[1.45] tracking-snug">
+            <p className="text-balance font-display font-light text-h2 text-text-heading leading-[1.45] tracking-snug">
               „{testimonial.quote}“
             </p>
             <footer className="font-sans text-sand-600 text-small">

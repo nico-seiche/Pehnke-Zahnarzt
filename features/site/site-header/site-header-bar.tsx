@@ -22,7 +22,7 @@ export function SiteHeaderBar({ name, phone, links, cta }: SiteHeaderBarProps) {
     <header className="sticky top-0 z-40 border-border-subtle border-b bg-surface-glass backdrop-blur-md">
       <div className="container-page flex items-center gap-16 py-12 lg:gap-32 lg:py-16">
         <Link href="/" onClick={close} className="flex items-baseline gap-8 no-underline hover:no-underline">
-          <span className="font-display font-semibold text-blue-900 text-h3 tracking-snug">Pehnke</span>
+          <span className="font-display font-medium text-h3 text-text-heading tracking-snug">Pehnke</span>
           <span className="hidden font-sans text-caption text-text-muted sm:inline">{name}</span>
         </Link>
 

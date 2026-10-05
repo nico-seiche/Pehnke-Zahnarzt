@@ -103,7 +103,7 @@ export async function HeroSection({ docId, sectionKey }: { docId: string; sectio
             <div className="absolute -bottom-24 -left-16 w-[230px] rounded-card bg-surface-card p-20 shadow-lg lg:-bottom-34 lg:-left-28 lg:w-[250px]">
               <div className="mb-12 flex items-center gap-8">
                 <Icon name="clock" className="text-[16px] text-brand" />
-                <strong className="font-sans text-blue-900 text-label">
+                <strong className="font-sans text-label text-text-heading">
                   {todayRow ? (todayRow.hours ? "Heute geöffnet" : "Heute geschlossen") : "Öffnungszeiten"}
                 </strong>
               </div>
