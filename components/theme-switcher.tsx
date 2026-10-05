@@ -7,12 +7,12 @@ import { COLOR_THEME_STORAGE_KEY, type ColorTheme, isColorTheme } from "~/featur
 import { cx } from "~/features/style/utils";
 
 const THEMES: { value: ColorTheme; label: string; swatch: string }[] = [
+  { value: "sage", label: "Salbei", swatch: "#6a964f" },
   { value: "blue", label: "Blau", swatch: "#2ba3dc" },
   { value: "mint", label: "Mint", swatch: "#33aaa3" },
   { value: "beige", label: "Beige", swatch: "#a9803c" },
   { value: "turquoise", label: "Türkis", swatch: "#1c9d95" },
   { value: "lavender", label: "Lavendel", swatch: "#7e5cc7" },
-  { value: "sage", label: "Salbei", swatch: "#6a964f" },
 ];
 
 function applyTheme(theme: ColorTheme) {
@@ -28,7 +28,7 @@ function applyTheme(theme: ColorTheme) {
 /** Floating button that switches the site's accent color scheme. */
 export function ThemeSwitcher() {
   const [opened, { toggle, close }] = useDisclosure(false);
-  const [theme, setTheme] = React.useState<ColorTheme>("blue");
+  const [theme, setTheme] = React.useState<ColorTheme>("sage");
   const ref = useClickOutside<HTMLDivElement>(close);
 
   React.useEffect(() => {

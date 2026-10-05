@@ -1,17 +1,17 @@
 /*
  * Zahnarztpraxis Pehnke — typography tokens, ported from the Penke design
  * system (`design-system/tokens/typography.css`, `tokens/fonts.css`).
- * Outfit for display/headings, Figtree for body text, IBM Plex Mono for
- * times and phone numbers. Font family is applied via `font-display` /
- * `font-sans` / `font-mono`; size/weight/leading via the `text-*` utilities
- * below (Tailwind v4 text-size modifiers don't carry font-family).
+ * Fraunces (editorial serif) for display/headings, Figtree for body text,
+ * IBM Plex Mono for times and phone numbers. Font family is applied via
+ * `font-display` / `font-sans` / `font-mono`; size/weight/leading via the
+ * `text-*` utilities below (Tailwind v4 text-size modifiers don't carry font-family).
  */
 @theme {
   /*
-   * Outfit/Figtree/IBM Plex Mono from ~/features/fonts (next/font sets the
-   * `--font-outfit` / `--font-figtree` / `--font-ibm-plex-mono` variables on `html`).
+   * Fraunces/Figtree/IBM Plex Mono from ~/features/fonts (next/font sets the
+   * `--font-fraunces` / `--font-figtree` / `--font-ibm-plex-mono` variables on `html`).
    */
-  --font-display: var(--font-outfit), "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-fraunces), "Georgia", serif;
   --font-sans: var(--font-figtree), "Segoe UI", system-ui, sans-serif;
   --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
 

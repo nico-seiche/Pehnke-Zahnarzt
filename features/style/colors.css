@@ -1,6 +1,6 @@
 /*
  * Zahnarztpraxis Pehnke — color tokens, ported from the Penke design system
- * (`design-system/tokens/colors.css`). Hellblau (light blue) primary, calm
+ * (`design-system/tokens/colors.css`). Salbei (sage green) primary, calm
  * white/neutral surfaces, mint as secondary accent, sand reserved for quotes.
  */
 @theme {
@@ -102,12 +102,14 @@
   --color-red-500: #d8453f;
   --color-red-700: #a12f2a;
 
-  /* ---- Semantic aliases (brand, text, surfaces, borders) ---- */
-  --color-brand: var(--color-blue-500);
-  --color-brand-strong: var(--color-blue-600);
-  --color-brand-deep: var(--color-blue-800);
-  --color-brand-soft: var(--color-blue-100);
-  --color-brand-tint: var(--color-blue-50);
+  /* ---- Semantic aliases (brand, text, surfaces, borders) ----
+     Salbei is the site default; the other palettes (including Hellblau)
+     live as `[data-theme="..."]` overrides below. */
+  --color-brand: var(--color-sage-500);
+  --color-brand-strong: var(--color-sage-600);
+  --color-brand-deep: var(--color-sage-700);
+  --color-brand-soft: var(--color-sage-100);
+  --color-brand-tint: var(--color-sage-50);
   --color-brand-secondary: var(--color-mint-400);
 
   --color-text-heading: var(--color-blue-900);
@@ -115,22 +117,22 @@
   --color-text-muted: var(--color-neutral-500);
   --color-text-subtle: var(--color-neutral-400);
   --color-text-on-brand: #ffffff;
-  --color-text-link: var(--color-blue-600);
-  --color-text-link-hover: var(--color-blue-800);
+  --color-text-link: var(--color-sage-600);
+  --color-text-link-hover: var(--color-sage-700);
 
   --color-surface-page: var(--color-neutral-0);
   --color-surface-alt: var(--color-neutral-50);
   --color-surface-card: var(--color-neutral-0);
-  --color-surface-tint: var(--color-blue-50);
-  --color-surface-brand: var(--color-blue-500);
+  --color-surface-tint: var(--color-sage-50);
+  --color-surface-brand: var(--color-sage-500);
   --color-surface-deep: var(--color-blue-900);
   --color-surface-overlay: rgba(21, 29, 37, 0.55);
   --color-surface-glass: rgba(255, 255, 255, 0.86);
 
   --color-border-subtle: var(--color-neutral-200);
   --color-border-default: var(--color-neutral-300);
-  --color-border-brand: var(--color-blue-300);
-  --color-focus-ring: var(--color-blue-400);
+  --color-border-brand: var(--color-sage-300);
+  --color-focus-ring: var(--color-sage-400);
 
   --color-state-success-bg: var(--color-green-100);
   --color-state-success-fg: var(--color-green-700);
@@ -145,8 +147,8 @@
 /* Gradients aren't themeable colors in Tailwind v4 — kept as plain custom
    properties and applied via small utility classes below. */
 :root {
-  --gradient-hero: linear-gradient(168deg, var(--color-blue-50) 0%, #ffffff 62%);
-  --gradient-brand: linear-gradient(135deg, var(--color-blue-400) 0%, var(--color-blue-600) 100%);
+  --gradient-hero: linear-gradient(168deg, var(--color-sage-50) 0%, #ffffff 62%);
+  --gradient-brand: linear-gradient(135deg, var(--color-sage-400) 0%, var(--color-sage-600) 100%);
   --gradient-protect: linear-gradient(to top, rgba(22, 63, 88, 0.72) 0%, rgba(22, 63, 88, 0) 72%);
 }
 
@@ -164,11 +166,29 @@
 
 /*
  * Color-scheme switcher (floating button, see ~/components/theme-switcher).
- * Overrides the brand accent tokens above; "blue" is the default and needs
+ * Overrides the brand accent tokens above; "sage" is the default and needs
  * no override block. Chosen scheme is stored in localStorage per viewer and
  * applied via a `data-theme` attribute on <html> (set pre-hydration to
  * avoid a flash — see the inline script in `app/shared-web-layout.tsx`).
  */
+:root[data-theme="blue"] {
+  --color-brand: var(--color-blue-500);
+  --color-brand-strong: var(--color-blue-600);
+  --color-brand-deep: var(--color-blue-800);
+  --color-brand-soft: var(--color-blue-100);
+  --color-brand-tint: var(--color-blue-50);
+
+  --color-text-link: var(--color-blue-600);
+  --color-text-link-hover: var(--color-blue-800);
+
+  --color-surface-tint: var(--color-blue-50);
+  --color-border-brand: var(--color-blue-300);
+  --color-focus-ring: var(--color-blue-400);
+
+  --gradient-hero: linear-gradient(168deg, var(--color-blue-50) 0%, #ffffff 62%);
+  --gradient-brand: linear-gradient(135deg, var(--color-blue-400) 0%, var(--color-blue-600) 100%);
+}
+
 :root[data-theme="mint"] {
   --color-brand: var(--color-mint-500);
   --color-brand-strong: var(--color-mint-600);
@@ -245,23 +265,4 @@
 
   --gradient-hero: linear-gradient(168deg, var(--color-lavender-50) 0%, #ffffff 62%);
   --gradient-brand: linear-gradient(135deg, var(--color-lavender-400) 0%, var(--color-lavender-600) 100%);
-}
-
-/* Salbei — ruhig, natürlich, krautig-grün. */
-:root[data-theme="sage"] {
-  --color-brand: var(--color-sage-500);
-  --color-brand-strong: var(--color-sage-600);
-  --color-brand-deep: var(--color-sage-700);
-  --color-brand-soft: var(--color-sage-100);
-  --color-brand-tint: var(--color-sage-50);
-
-  --color-text-link: var(--color-sage-600);
-  --color-text-link-hover: var(--color-sage-700);
-
-  --color-surface-tint: var(--color-sage-50);
-  --color-border-brand: var(--color-sage-300);
-  --color-focus-ring: var(--color-sage-400);
-
-  --gradient-hero: linear-gradient(168deg, var(--color-sage-50) 0%, #ffffff 62%);
-  --gradient-brand: linear-gradient(135deg, var(--color-sage-400) 0%, var(--color-sage-600) 100%);
 }

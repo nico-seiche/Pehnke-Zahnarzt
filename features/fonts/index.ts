@@ -1,15 +1,15 @@
-import { Figtree, IBM_Plex_Mono, Outfit } from "next/font/google";
+import { Figtree, Fraunces, IBM_Plex_Mono } from "next/font/google";
 
 /**
- * Font substitution per the Penke design system (no original brand fonts supplied):
- * Outfit (display/headings), Figtree (body text), IBM Plex Mono (times, phone numbers).
- * Loaded on `<html>` so the `--font-*` variables exist for the `font-display` / `font-sans` /
- * `font-mono` Tailwind utilities (see `features/style/typography.css`).
+ * Fraunces (display/headings, editorial serif), Figtree (body text), IBM Plex Mono
+ * (times, phone numbers). Loaded on `<html>` so the `--font-*` variables exist for the
+ * `font-display` / `font-sans` / `font-mono` Tailwind utilities (see `features/style/typography.css`).
  */
-const outfit = Outfit({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-outfit",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -28,4 +28,4 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-export const fonts = [outfit, figtree, ibmPlexMono];
+export const fonts = [fraunces, figtree, ibmPlexMono];

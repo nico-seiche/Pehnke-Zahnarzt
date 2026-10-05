@@ -11,7 +11,7 @@ import { COLOR_THEME_STORAGE_KEY, COLOR_THEMES } from "~/features/style/color-th
 import { cx } from "~/features/style/utils";
 import { ViewTransitions } from "~/features/view-transition/app-view-transitions";
 
-// Applies the saved color scheme before paint, so there's no flash of the default (blue) theme.
+// Applies the saved color scheme before paint, so there's no flash of the default (sage) theme.
 const COLOR_THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem(${JSON.stringify(
   COLOR_THEME_STORAGE_KEY
 )});if(${JSON.stringify(COLOR_THEMES)}.indexOf(t)!==-1){document.documentElement.dataset.theme=t;}}catch(e){}})();`;
