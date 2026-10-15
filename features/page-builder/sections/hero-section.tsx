@@ -57,10 +57,26 @@ export async function HeroSection({ docId, sectionKey }: { docId: string; sectio
     <section
       id={stegaClean(section.settings?.hash)}
       data-page-builder-section="heroSection"
-      className="bg-gradient-hero pt-40 pb-64 lg:pt-64 lg:pb-96"
+      className="relative isolate flex min-h-[560px] items-center overflow-hidden bg-gradient-hero py-48 lg:min-h-[640px] lg:py-64"
     >
-      <div className="container-page grid items-center gap-48 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="reveal-group flex flex-col items-start gap-24">
+      <div className="absolute inset-0 -z-20">
+        <SanityImage
+          image={image?.image}
+          aspectRatio="4/3 sm:16/9 lg:21/9"
+          sizes="100vw"
+          priority
+          alt=""
+          className="block h-full w-full object-cover"
+        />
+      </div>
+      {/* Beige scrim, opaque on the left (where the text sits) fading out by mid-image for legibility. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-paper-100)_0%,var(--color-paper-100)_30%,transparent_60%)]"
+      />
+
+      <div className="container-page">
+        <div className="reveal-group flex max-w-[520px] flex-col items-start gap-24">
           {eyebrow && <span className="eyebrow">{eyebrow}</span>}
           <h1 className="text-balance font-display text-display text-text-heading tracking-tight">{headline}</h1>
           {lead && <p className="max-w-[480px] font-sans text-lead text-text-muted">{lead}</p>}
@@ -71,7 +87,7 @@ export async function HeroSection({ docId, sectionKey }: { docId: string; sectio
               </Button>
             )}
             {secondaryCta?.href && (
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="outline" className="border-brand bg-surface-page/70 backdrop-blur-sm">
                 <SanityLink link={secondaryCta}>{secondaryCta.text}</SanityLink>
               </Button>
             )}
@@ -90,43 +106,34 @@ export async function HeroSection({ docId, sectionKey }: { docId: string; sectio
             </div>
           )}
         </div>
+      </div>
 
-        <div className="reveal relative [animation-delay:180ms]">
-          <SanityImage
-            image={image?.image}
-            aspectRatio="4/3"
-            sizes="(min-width: 64rem) 50vw, 100vw"
-            priority
-            className="block w-full rounded-media object-cover"
-          />
-          {showTodayCard && (todayRow || site?.phone) && (
-            <div className="absolute -bottom-24 -left-16 w-[230px] rounded-card bg-surface-card p-20 shadow-lg lg:-bottom-34 lg:-left-28 lg:w-[250px]">
-              <div className="mb-12 flex items-center gap-8">
-                <Icon name="clock" className="text-[16px] text-brand" />
-                <strong className="font-sans text-label text-text-heading">
-                  {todayRow ? (todayRow.hours ? "Heute geöffnet" : "Heute geschlossen") : "Öffnungszeiten"}
-                </strong>
-              </div>
-              {todayRow?.hours && (
-                <div className="font-sans text-small text-text-body tabular-nums">
-                  {todayRow.hours.split(" · ").map((slot) => (
-                    <div key={slot}>{slot}</div>
-                  ))}
-                </div>
-              )}
-              {site?.phone && (
-                <a
-                  href={`tel:${site.phone.replace(/\s/g, "")}`}
-                  className="mt-16 inline-flex items-center gap-6 font-medium font-sans text-small text-text-body no-underline hover:text-brand-strong hover:no-underline"
-                >
-                  <Icon name="phone" className="text-[14px]" />
-                  {site.phone}
-                </a>
-              )}
+      {showTodayCard && (todayRow || site?.phone) && (
+        <div className="reveal absolute right-16 bottom-16 w-[230px] rounded-card bg-surface-card p-20 shadow-lg [animation-delay:180ms] lg:right-40 lg:bottom-40 lg:w-[250px]">
+          <div className="mb-12 flex items-center gap-8">
+            <Icon name="clock" className="text-[16px] text-brand" />
+            <strong className="font-sans text-label text-text-heading">
+              {todayRow ? (todayRow.hours ? "Heute geöffnet" : "Heute geschlossen") : "Öffnungszeiten"}
+            </strong>
+          </div>
+          {todayRow?.hours && (
+            <div className="font-sans text-small text-text-body tabular-nums">
+              {todayRow.hours.split(" · ").map((slot) => (
+                <div key={slot}>{slot}</div>
+              ))}
             </div>
           )}
+          {site?.phone && (
+            <a
+              href={`tel:${site.phone.replace(/\s/g, "")}`}
+              className="mt-16 inline-flex items-center gap-6 font-medium font-sans text-small text-text-body no-underline hover:text-brand-strong hover:no-underline"
+            >
+              <Icon name="phone" className="text-[14px]" />
+              {site.phone}
+            </a>
+          )}
         </div>
-      </div>
+      )}
     </section>
   );
 }
