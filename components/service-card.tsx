@@ -13,7 +13,7 @@ export function ServiceCard({ icon, title, text, bullets, meta }: ServiceCardPro
 
   return (
     <div className="flex h-full flex-col items-start gap-16 border-border-subtle border-r border-b p-32 lg:p-40">
-      <span className="flex size-64 items-center justify-center rounded-full bg-paper-300 text-brand-strong lg:size-72">
+      <span className="flex size-64 items-center justify-center rounded-full bg-chip text-brand-strong lg:size-72">
         {icon && <Icon name={icon} className="text-[26px]" />}
       </span>
       <h3 className="font-display font-medium text-h3 text-text-heading">{title}</h3>

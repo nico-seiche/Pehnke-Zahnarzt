@@ -6,13 +6,12 @@ import { Icon } from "~/components/icon";
 import { COLOR_THEME_STORAGE_KEY, type ColorTheme, isColorTheme } from "~/features/style/color-theme";
 import { cx } from "~/features/style/utils";
 
+// Swatches show the background wash, not the accent — Salbei green stays the
+// fixed brand color across all three options (see ~/features/style/colors.css).
 const THEMES: { value: ColorTheme; label: string; swatch: string }[] = [
-  { value: "sage", label: "Salbei", swatch: "#6a964f" },
-  { value: "blue", label: "Blau", swatch: "#2ba3dc" },
-  { value: "mint", label: "Mint", swatch: "#33aaa3" },
-  { value: "beige", label: "Beige", swatch: "#a9803c" },
-  { value: "turquoise", label: "Türkis", swatch: "#1c9d95" },
-  { value: "lavender", label: "Lavendel", swatch: "#7e5cc7" },
+  { value: "sage", label: "Salbei", swatch: "#f3ecdf" },
+  { value: "white", label: "Weiß", swatch: "#eef2f6" },
+  { value: "beige", label: "Beige", swatch: "#f4e4c9" },
 ];
 
 function applyTheme(theme: ColorTheme) {
@@ -25,7 +24,7 @@ function applyTheme(theme: ColorTheme) {
   }
 }
 
-/** Floating button that switches the site's accent color scheme. */
+/** Floating button that switches the site's background wash (Salbei stays the fixed accent). */
 export function ThemeSwitcher() {
   const [opened, { toggle, close }] = useDisclosure(false);
   const [theme, setTheme] = React.useState<ColorTheme>("sage");
@@ -61,7 +60,7 @@ export function ThemeSwitcher() {
               <span
                 className={cx(
                   "size-32 shrink-0 rounded-full border-2 transition-transform duration-160 ease-out hover:scale-110",
-                  theme === t.value ? "border-text-heading" : "border-transparent"
+                  theme === t.value ? "border-text-heading" : "border-border-default"
                 )}
                 style={{ backgroundColor: t.swatch }}
               />

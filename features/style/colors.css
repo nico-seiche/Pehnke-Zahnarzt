@@ -38,33 +38,12 @@
   --color-mint-600: #238a86;
   --color-mint-700: #1c6d6b;
 
-  /* Sand — warm accent, used sparingly (quotes only) */
+  /* Sand — warm accent, used sparingly (quotes, Beige wash) */
   --color-sand-100: #fbf4e9;
   --color-sand-200: #f4e4c9;
-  --color-sand-400: #e0b978;
   --color-sand-600: #a9803c;
 
-  /* Türkis — color-theme option, fresh/clean (toothpaste-adjacent) */
-  --color-turquoise-50: #eefbfa;
-  --color-turquoise-100: #d3f4f1;
-  --color-turquoise-200: #a3e7e2;
-  --color-turquoise-300: #6dd4cd;
-  --color-turquoise-400: #3bbcb3;
-  --color-turquoise-500: #1c9d95;
-  --color-turquoise-600: #147d77;
-  --color-turquoise-700: #106561;
-
-  /* Lavendel — color-theme option, calm/premium */
-  --color-lavender-50: #f6f3fc;
-  --color-lavender-100: #ece5f8;
-  --color-lavender-200: #d4c5f0;
-  --color-lavender-300: #b69ce3;
-  --color-lavender-400: #9a79d6;
-  --color-lavender-500: #7e5cc7;
-  --color-lavender-600: #6647a8;
-  --color-lavender-700: #513687;
-
-  /* Salbei — color-theme option, calm/natural, herbal-green.
+  /* Salbei — the site's one fixed brand accent, calm/natural, herbal-green.
      Anchored on Miss Pompadour "Grün mit Salbei", tone #b5bfaf; sage-300
      matches that tone directly, the lighter steps stay true to its muted
      gray-green cast, and 500/600 add saturation/contrast for buttons and
@@ -109,8 +88,10 @@
   --color-red-700: #a12f2a;
 
   /* ---- Semantic aliases (brand, text, surfaces, borders) ----
-     Salbei is the site default; the other palettes (including Hellblau)
-     live as `[data-theme="..."]` overrides below. */
+     Salbei is the fixed brand accent — it never changes. The background-wash
+     switcher (Salbei / Weiß / Beige, see ~/components/theme-switcher) only
+     overrides the surface, border and chip tokens below, via a data-theme
+     attribute on <html>. */
   --color-brand: var(--color-sage-500);
   --color-brand-strong: var(--color-sage-600);
   --color-brand-deep: var(--color-sage-700);
@@ -134,6 +115,7 @@
   --color-surface-deep: var(--color-blue-900);
   --color-surface-overlay: rgba(21, 29, 37, 0.55);
   --color-surface-glass: rgba(255, 255, 255, 0.86);
+  --color-chip: var(--color-paper-300);
 
   --color-border-subtle: #ece4d5;
   --color-border-default: #ddd2ba;
@@ -171,104 +153,33 @@
 }
 
 /*
- * Color-scheme switcher (floating button, see ~/components/theme-switcher).
- * Overrides the brand accent tokens above; "sage" is the default and needs
- * no override block. Chosen scheme is stored in localStorage per viewer and
- * applied via a `data-theme` attribute on <html> (set pre-hydration to
- * avoid a flash — see the inline script in `app/shared-web-layout.tsx`).
+ * Background-wash switcher (floating button, see ~/components/theme-switcher).
+ * Salbei is the one fixed brand accent — these overrides touch only the
+ * canvas (surface, border, chip, gradient-hero tokens), never the brand or
+ * text-link tokens. "sage" is the default wash (warm ivory) and needs no
+ * override block. Chosen wash is stored in localStorage per viewer and
+ * applied via a data-theme attribute on <html> (set pre-hydration to avoid
+ * a flash — see the inline script in app/shared-web-layout.tsx).
  */
-:root[data-theme="blue"] {
-  --color-brand: var(--color-blue-500);
-  --color-brand-strong: var(--color-blue-600);
-  --color-brand-deep: var(--color-blue-800);
-  --color-brand-soft: var(--color-blue-100);
-  --color-brand-tint: var(--color-blue-50);
+:root[data-theme="white"] {
+  --color-surface-page: var(--color-neutral-0);
+  --color-surface-alt: var(--color-neutral-50);
+  --color-surface-card: var(--color-neutral-0);
+  --color-chip: var(--color-neutral-100);
 
-  --color-text-link: var(--color-blue-600);
-  --color-text-link-hover: var(--color-blue-800);
+  --color-border-subtle: var(--color-neutral-200);
+  --color-border-default: var(--color-neutral-300);
 
-  --color-surface-tint: var(--color-blue-50);
-  --color-border-brand: var(--color-blue-300);
-  --color-focus-ring: var(--color-blue-400);
-
-  --gradient-hero: linear-gradient(168deg, var(--color-blue-50) 0%, var(--color-paper-50) 62%);
-  --gradient-brand: linear-gradient(135deg, var(--color-blue-400) 0%, var(--color-blue-600) 100%);
+  --gradient-hero: linear-gradient(168deg, var(--color-sage-50) 0%, #ffffff 62%);
 }
 
-:root[data-theme="mint"] {
-  --color-brand: var(--color-mint-500);
-  --color-brand-strong: var(--color-mint-600);
-  --color-brand-deep: var(--color-mint-700);
-  --color-brand-soft: var(--color-mint-100);
-  --color-brand-tint: var(--color-mint-50);
-
-  --color-text-link: var(--color-mint-600);
-  --color-text-link-hover: var(--color-mint-700);
-
-  --color-surface-tint: var(--color-mint-50);
-  --color-border-brand: var(--color-mint-300);
-  --color-focus-ring: var(--color-mint-400);
-
-  --gradient-hero: linear-gradient(168deg, var(--color-mint-50) 0%, var(--color-paper-50) 62%);
-  --gradient-brand: linear-gradient(135deg, var(--color-mint-400) 0%, var(--color-mint-600) 100%);
-}
-
-/* Very light, warm beige — washes across the whole page (surfaces, not just the accent). */
+/* Very light, warm beige — washes across the whole page (surfaces, not the accent). */
 :root[data-theme="beige"] {
-  --color-brand: var(--color-sand-600);
-  --color-brand-strong: #8a672f;
-  --color-brand-deep: #6b4f22;
-  --color-brand-soft: var(--color-sand-200);
-  --color-brand-tint: var(--color-sand-100);
-
-  --color-text-link: #8a672f;
-  --color-text-link-hover: #6b4f22;
-
   --color-surface-page: var(--color-sand-100);
   --color-surface-alt: #f3e7d2;
   --color-surface-card: var(--color-neutral-0);
   --color-surface-tint: #f3e7d2;
-  --color-border-brand: var(--color-sand-400);
-  --color-focus-ring: var(--color-sand-400);
+  --color-chip: var(--color-sand-200);
 
   --gradient-hero: linear-gradient(168deg, var(--color-sand-200) 0%, var(--color-sand-100) 62%);
-  --gradient-brand: linear-gradient(135deg, var(--color-sand-400) 0%, #8a672f 100%);
-}
-
-/* Türkis — frisch, an Zahnpasta/klinische Sauberkeit angelehnt. */
-:root[data-theme="turquoise"] {
-  --color-brand: var(--color-turquoise-500);
-  --color-brand-strong: var(--color-turquoise-600);
-  --color-brand-deep: var(--color-turquoise-700);
-  --color-brand-soft: var(--color-turquoise-100);
-  --color-brand-tint: var(--color-turquoise-50);
-
-  --color-text-link: var(--color-turquoise-600);
-  --color-text-link-hover: var(--color-turquoise-700);
-
-  --color-surface-tint: var(--color-turquoise-50);
-  --color-border-brand: var(--color-turquoise-300);
-  --color-focus-ring: var(--color-turquoise-400);
-
-  --gradient-hero: linear-gradient(168deg, var(--color-turquoise-50) 0%, var(--color-paper-50) 62%);
-  --gradient-brand: linear-gradient(135deg, var(--color-turquoise-400) 0%, var(--color-turquoise-600) 100%);
-}
-
-/* Lavendel — ruhig, in moderner Zahnmedizin ein beliebter beruhigender Akzent. */
-:root[data-theme="lavender"] {
-  --color-brand: var(--color-lavender-500);
-  --color-brand-strong: var(--color-lavender-600);
-  --color-brand-deep: var(--color-lavender-700);
-  --color-brand-soft: var(--color-lavender-100);
-  --color-brand-tint: var(--color-lavender-50);
-
-  --color-text-link: var(--color-lavender-600);
-  --color-text-link-hover: var(--color-lavender-700);
-
-  --color-surface-tint: var(--color-lavender-50);
-  --color-border-brand: var(--color-lavender-300);
-  --color-focus-ring: var(--color-lavender-400);
-
-  --gradient-hero: linear-gradient(168deg, var(--color-lavender-50) 0%, var(--color-paper-50) 62%);
-  --gradient-brand: linear-gradient(135deg, var(--color-lavender-400) 0%, var(--color-lavender-600) 100%);
 }

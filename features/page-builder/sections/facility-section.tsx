@@ -58,7 +58,7 @@ export async function FacilitySection({ docId, sectionKey }: { docId: string; se
             <div className="reveal-group flex flex-col gap-16">
               {features.map((feature) => (
                 <div key={feature.key} className="flex items-center gap-12 font-sans text-small text-text-body">
-                  <span className="flex size-36 shrink-0 items-center justify-center rounded-full bg-paper-300 text-brand-strong">
+                  <span className="flex size-36 shrink-0 items-center justify-center rounded-full bg-chip text-brand-strong">
                     {feature.appIcon && <Icon name={feature.appIcon as IconName} className="text-[17px]" />}
                   </span>
                   {feature.text}
