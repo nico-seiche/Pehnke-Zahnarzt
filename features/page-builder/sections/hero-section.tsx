@@ -57,7 +57,7 @@ export async function HeroSection({ docId, sectionKey }: { docId: string; sectio
     <section
       id={stegaClean(section.settings?.hash)}
       data-page-builder-section="heroSection"
-      className="relative isolate flex min-h-[560px] items-center overflow-hidden bg-gradient-hero py-48 lg:min-h-[640px] lg:py-64"
+      className="relative isolate overflow-hidden bg-gradient-hero"
     >
       <div className="absolute inset-0 -z-20">
         <SanityImage
@@ -75,7 +75,7 @@ export async function HeroSection({ docId, sectionKey }: { docId: string; sectio
         className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-paper-100)_0%,var(--color-paper-100)_30%,transparent_60%)]"
       />
 
-      <div className="container-page">
+      <div className="container-page flex min-h-[560px] items-center py-48 lg:min-h-[640px] lg:py-64">
         <div className="reveal-group flex max-w-[520px] flex-col items-start gap-24">
           {eyebrow && <span className="eyebrow">{eyebrow}</span>}
           <h1 className="text-balance font-display text-display text-text-heading tracking-tight">{headline}</h1>
