@@ -908,6 +908,7 @@ export type ServicesSection = {
     appIcon?: string;
     title?: string;
     text?: string;
+    bullets?: Array<string>;
     meta?: string;
     _key: string;
   }>;
@@ -3113,7 +3114,7 @@ export type AllServicesQResult = Array<{
 
 // Source: features/page-builder/sections/services-section.tsx
 // Variable: ServicesSectionQ
-// Query: *[_id == $docId][0].pageBuilder.sectionsArray[_type == "servicesSectionField" && _key == $sectionKey][0]{    "content": sectionContent{      eyebrow,      title,      lead,      tone,      items[]{"key": _key, appIcon, title, text, meta},      "link": link{  type,  "openInNewTab": coalesce(openInNewTab, false),  "canDownload": select(    type == "file" => coalesce(canDownload, false),    true => false  ),  "href": select(    type == "internal" => coalesce(      select(        defined(internal.sectionTarget) && defined(internal.link->pageBuilder.sectionsArray) => internal.link->uri.current + '#' + coalesce(          internal.link->pageBuilder.sectionsArray[_key == ^.internal.sectionTarget][0].sectionSettings.sectionHash.current,          internal.link->pageBuilder.sectionsArray[_key == ^.internal.sectionTarget][0]._key,        ),        true => internal.link->uri.current,      ),      ""    ),    type == "external" => coalesce(external, ""),    type == "email" => "mailto:" + coalesce(email, ""),    type == "phone" => "tel:" + coalesce(phone, ""),    type == "file" => coalesce(file.asset->url, ""),    type == "params" => coalesce(paramsHref, ""),    true => ""  ),  "text": coalesce(    customText,    select(      type == "internal" => coalesce(        select(          defined(internal.sectionTarget) && defined(internal.link->pageBuilder.sectionsArray) => coalesce(            internal.link->pageBuilder.sectionsArray[_key == ^.internal.sectionTarget][0].sectionSettings.sectionTitle,            internal.link->title,          ),          true => internal.link->title,        ),        internal.link->uri.current,        ""      ),      type == "external" => coalesce(external, ""),      type == "email" => coalesce(email, ""),      type == "phone" => coalesce(phone, ""),      type == "file" => coalesce(file.asset->originalFilename, ""),      type == "params" => coalesce(paramsHref, ""),      true => ""    ),    "",  )},    },    "settings": sectionSettings {      "hash": coalesce(sectionHash.current, _key),    }}
+// Query: *[_id == $docId][0].pageBuilder.sectionsArray[_type == "servicesSectionField" && _key == $sectionKey][0]{    "content": sectionContent{      eyebrow,      title,      lead,      tone,      items[]{"key": _key, appIcon, title, text, bullets, meta},      "link": link{  type,  "openInNewTab": coalesce(openInNewTab, false),  "canDownload": select(    type == "file" => coalesce(canDownload, false),    true => false  ),  "href": select(    type == "internal" => coalesce(      select(        defined(internal.sectionTarget) && defined(internal.link->pageBuilder.sectionsArray) => internal.link->uri.current + '#' + coalesce(          internal.link->pageBuilder.sectionsArray[_key == ^.internal.sectionTarget][0].sectionSettings.sectionHash.current,          internal.link->pageBuilder.sectionsArray[_key == ^.internal.sectionTarget][0]._key,        ),        true => internal.link->uri.current,      ),      ""    ),    type == "external" => coalesce(external, ""),    type == "email" => "mailto:" + coalesce(email, ""),    type == "phone" => "tel:" + coalesce(phone, ""),    type == "file" => coalesce(file.asset->url, ""),    type == "params" => coalesce(paramsHref, ""),    true => ""  ),  "text": coalesce(    customText,    select(      type == "internal" => coalesce(        select(          defined(internal.sectionTarget) && defined(internal.link->pageBuilder.sectionsArray) => coalesce(            internal.link->pageBuilder.sectionsArray[_key == ^.internal.sectionTarget][0].sectionSettings.sectionTitle,            internal.link->title,          ),          true => internal.link->title,        ),        internal.link->uri.current,        ""      ),      type == "external" => coalesce(external, ""),      type == "email" => coalesce(email, ""),      type == "phone" => coalesce(phone, ""),      type == "file" => coalesce(file.asset->originalFilename, ""),      type == "params" => coalesce(paramsHref, ""),      true => ""    ),    "",  )},    },    "settings": sectionSettings {      "hash": coalesce(sectionHash.current, _key),    }}
 export type ServicesSectionQResult = {
   content: {
     eyebrow: string | undefined;
@@ -3125,6 +3126,7 @@ export type ServicesSectionQResult = {
       appIcon: string | undefined;
       title: string | undefined;
       text: string | undefined;
+      bullets: Array<string> | undefined;
       meta: string | undefined;
     }> | undefined;
     link: {

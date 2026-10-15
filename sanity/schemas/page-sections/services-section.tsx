@@ -35,7 +35,14 @@ export const servicesSection = defineField({
           fields: [
             createIconField({ iconComponent: Icon, iconNames }),
             defineField({ name: "title", type: "string", validation: (R) => R.required() }),
-            defineField({ name: "text", type: "text", rows: 2, validation: (R) => R.required().max(200) }),
+            defineField({ name: "text", type: "text", rows: 2, title: "Text", description: "Used when no bullets are set." }),
+            defineField({
+              name: "bullets",
+              type: "array",
+              title: "Bullets",
+              description: "Short list of included treatments, shown instead of the text sentence.",
+              of: [defineArrayMember({ type: "string" })],
+            }),
             defineField({ name: "meta", type: "string", title: "Meta", description: "E.g. “60 Minuten” or “Kassenleistung”." }),
           ],
           preview: {

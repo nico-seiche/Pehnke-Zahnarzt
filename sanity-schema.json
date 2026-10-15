@@ -5446,6 +5446,16 @@
                   },
                   "optional": true
                 },
+                "bullets": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "array",
+                    "of": {
+                      "type": "string"
+                    }
+                  },
+                  "optional": true
+                },
                 "meta": {
                   "type": "objectAttribute",
                   "value": {

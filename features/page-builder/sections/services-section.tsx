@@ -15,7 +15,7 @@ const ServicesSectionQ =
       title,
       lead,
       tone,
-      items[]{"key": _key, appIcon, title, text, meta},
+      items[]{"key": _key, appIcon, title, text, bullets, meta},
       "link": link{${LinkFragment}},
     },
     "settings": sectionSettings {
@@ -53,6 +53,7 @@ export async function ServicesSection({ docId, sectionKey }: { docId: string; se
                 icon={item.appIcon as IconName | null}
                 title={item.title ?? ""}
                 text={item.text}
+                bullets={item.bullets}
                 meta={item.meta}
               />
             ))}
