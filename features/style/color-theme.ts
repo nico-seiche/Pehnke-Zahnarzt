@@ -1,6 +1,6 @@
 export const COLOR_THEME_STORAGE_KEY = "pk-color-theme";
 
-export const COLOR_THEMES = ["sage", "white", "beige"] as const;
+export const COLOR_THEMES = ["sage", "white"] as const;
 
 export type ColorTheme = (typeof COLOR_THEMES)[number];
 

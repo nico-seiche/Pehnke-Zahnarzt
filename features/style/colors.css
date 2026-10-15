@@ -38,9 +38,8 @@
   --color-mint-600: #238a86;
   --color-mint-700: #1c6d6b;
 
-  /* Sand — warm accent, used sparingly (quotes, Beige wash) */
+  /* Sand — warm accent, used sparingly (quote blocks) */
   --color-sand-100: #fbf4e9;
-  --color-sand-200: #f4e4c9;
   --color-sand-600: #a9803c;
 
   /* Salbei — the site's one fixed brand accent, calm/natural, herbal-green.
@@ -154,7 +153,7 @@
 
 /*
  * Background-wash switcher (floating button, see ~/components/theme-switcher).
- * Salbei is the one fixed brand accent — these overrides touch only the
+ * Salbei is the one fixed brand accent — this override touches only the
  * canvas (surface, border, chip, gradient-hero tokens), never the brand or
  * text-link tokens. "sage" is the default wash (warm ivory) and needs no
  * override block. Chosen wash is stored in localStorage per viewer and
@@ -171,15 +170,4 @@
   --color-border-default: var(--color-neutral-300);
 
   --gradient-hero: linear-gradient(168deg, var(--color-sage-50) 0%, #ffffff 62%);
-}
-
-/* Very light, warm beige — washes across the whole page (surfaces, not the accent). */
-:root[data-theme="beige"] {
-  --color-surface-page: var(--color-sand-100);
-  --color-surface-alt: #f3e7d2;
-  --color-surface-card: var(--color-neutral-0);
-  --color-surface-tint: #f3e7d2;
-  --color-chip: var(--color-sand-200);
-
-  --gradient-hero: linear-gradient(168deg, var(--color-sand-200) 0%, var(--color-sand-100) 62%);
 }

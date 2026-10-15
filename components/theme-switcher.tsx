@@ -7,11 +7,10 @@ import { COLOR_THEME_STORAGE_KEY, type ColorTheme, isColorTheme } from "~/featur
 import { cx } from "~/features/style/utils";
 
 // Swatches show the background wash, not the accent — Salbei green stays the
-// fixed brand color across all three options (see ~/features/style/colors.css).
+// fixed brand color across both options (see ~/features/style/colors.css).
 const THEMES: { value: ColorTheme; label: string; swatch: string }[] = [
   { value: "sage", label: "Salbei", swatch: "#f3ecdf" },
   { value: "white", label: "Weiß", swatch: "#eef2f6" },
-  { value: "beige", label: "Beige", swatch: "#f4e4c9" },
 ];
 
 function applyTheme(theme: ColorTheme) {
@@ -47,7 +46,7 @@ export function ThemeSwitcher() {
   return (
     <div ref={ref} className="fixed right-16 bottom-16 z-50 flex flex-col items-end gap-8 sm:right-24 sm:bottom-24">
       {opened && (
-        <div className="reveal-group grid grid-cols-3 gap-16 rounded-panel bg-surface-card p-16 shadow-lg">
+        <div className="reveal-group grid grid-cols-2 gap-16 rounded-panel bg-surface-card p-16 shadow-lg">
           {THEMES.map((t) => (
             <button
               key={t.value}
